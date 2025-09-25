@@ -1,70 +1,81 @@
-#include <stdio.h>
+// Função recursiva para movimentar a TORRE
+void moverTorre(int casas)
+{
+    if (casas <= 0) return;
+    printf("Torre: 1 casa a direita\n");
+    moverTorre(casas - 1);
+}
 
-// Desafio de Xadrez - MateCheck
+// Função recursiva com loops aninhados para movimentar o BISPO
+void moverBispo(int casas)
+{
+    if (casas <= 0) return;
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-
-     //declarando as variáveis
-    int movimentacao=1, i;
-
-    //movimentando a torre
-    printf("Movimente a TORRE: \n");
-
-    while (movimentacao<=5)
+    // loop externo → vertical
+    for (int i = 1; i <= 1; i++)
     {
-        printf("Movendo-se a direita (%d x)\n", movimentacao);
-        movimentacao++;
-
+        // loop interno → horizontal
+        for (int j = 1; j <= 1; j++)
+        {
+            printf("Bispo: 1 casa para cima e 1 casa para a direita\n");
+        }
     }
 
-    // movimentando o bispo
-    printf("\n Movimente o BISPO: \n");
-    movimentacao=1;
+    moverBispo(casas - 1);
+}
 
-    do
+// Função recursiva para movimentar a RAINHA
+void moverRainha(int casas)
+{
+    if (casas <= 0) return;
+
+    printf("Rainha: 1 casa para a esquerda\n");
+
+    moverRainha(casas - 1);
+}
+
+// Função para movimentar o CAVALO com loops aninhados complexos
+        void moverCavalo()
+        {
+
+    // loop externo (for) representa o movimento completo
+    for (int i = 1; i <= 1; i++)
     {
-        printf("1 casa para cima, 1 casa para a direita \n");
-        movimentacao++;
-    }
-    while (movimentacao<=5);
+        int j = 1;
 
-
-// movimentando a rainha
-    movimentacao=1;
-
-    printf("\n Movimente a rainha \n");
-
-    for (i=1; i<=8; i++)
-    {
-        printf("1 casa para a esquerda (%d x) \n", i);
-
-    }
-
-    
-    // movimentando o cavalo
-    printf("\n Movimente o CAVALO: \n");
-
-    // loop externo (for) representa o movimento completo do cavalo
-    for (i=1; i<=1; i++) // apenas 1 movimento
-    {
-       int j = 1; // variável para o while
-
-        // loop interno (while) percorre os 3 passos do movimento
+        // loop interno (while) percorre os 3 passos
         while (j <= 3)
         {
             if (j <= 2)
             {
-                printf("Movimento %d: 1 casa para baixo\n", j);
+                printf("Cavalo: 1 casa para cima\n");
             }
             else
             {
-                printf("Movimento %d: 1 casa para a esquerda\n", j);
+                printf("Cavalo: 1 casa para a direita\n");
             }
+
+            // exemplo de controle de fluxo (poderia usar continue/break)
+            if (j == 3) break;
+
             j++;
         }
     }
+}
 
+int main()
+{
+    printf("Movimentando a TORRE:\n");
+    moverTorre(5);
+
+    printf("\nMovimentando o BISPO:\n");
+    moverBispo(5);
+
+    printf("\nMovimentando a RAINHA:\n");
+    moverRainha(8);
+
+    printf("\nMovimentando o CAVALO:\n");
+    moverCavalo();
 
     return 0;
 }
