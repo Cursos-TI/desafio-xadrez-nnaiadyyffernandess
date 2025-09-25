@@ -41,6 +41,29 @@ int main() {
 
     }
 
+    
+    // movimentando o cavalo
+    printf("\n Movimente o CAVALO: \n");
+
+    // loop externo (for) representa o movimento completo do cavalo
+    for (i=1; i<=1; i++) // apenas 1 movimento
+    {
+       int j = 1; // variável para o while
+
+        // loop interno (while) percorre os 3 passos do movimento
+        while (j <= 3)
+        {
+            if (j <= 2)
+            {
+                printf("Movimento %d: 1 casa para baixo\n", j);
+            }
+            else
+            {
+                printf("Movimento %d: 1 casa para a esquerda\n", j);
+            }
+            j++;
+        }
+    }
 
 
     return 0;
